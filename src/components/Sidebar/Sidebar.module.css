@@ -1,0 +1,132 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: sticky;
+  width: 237px;
+  padding: 0 12px 12px;
+  background: #28292C;
+  border-right: 1px solid #202225;
+}
+
+.logo_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 12px;
+  gap: 10px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 12px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.logo__img {
+  width: 102px;
+  height: 24px;
+}
+
+.logo__text {
+  background: #FFFFFF;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+  padding: 0px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 8px;
+}
+
+.nav_item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px;
+  gap: 16px;
+  border-radius: 10px;
+  width: 100%;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  transition: background 0.3s;
+}
+
+.nav_item:nth-child(4) {
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.nav_item:nth-child(4)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(100% + 8px);
+  width: calc(100% - 8px);
+  height: 1px;
+  margin: 0 4px;
+  background: #333539;
+  border-radius: 5px;
+}
+
+.nav_item:hover {
+  background: #7788ea46;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.img {
+  width: 24px;
+  height: 24px;
+}
+
+.nav_item__text {
+  font-size: 14px;
+  line-height: 16px;
+  color: #939495;
+}
+
+.active_link {
+  background: #7789EA;
+  color: #FFFFFF;
+}
+
+.active_link_text {
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.logout_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  width: 100%;
+}
+
+.logout_button:hover {
+  background: #82239f46;
+  transition: background 0.3s;
+}
