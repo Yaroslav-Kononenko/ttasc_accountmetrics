@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Header.module.css";
 import avatar from "../../assets/header/avatar.png";
 import switcher from "../../assets/header/lang_arrow.svg";

@@ -1,0 +1,31 @@
+.app {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1440px;
+  min-height: 100vh;
+  background: #212224;
+}
+
+.leftPart {
+  position: sticky;
+  width: 100%;
+}
+
+.content {
+  padding: 32px;
+}
+
+.top_container {
+  display: flex;
+  width: 100%;
+  gap: 24px;
+  border: none;
+}
+
+.bottom_container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 24px;
+}

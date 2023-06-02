@@ -1,0 +1,105 @@
+.detail_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 264px;
+  background: #28292B;
+  border-radius: 10px;
+  padding: 40px 0;
+}
+
+.text_container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 24px;
+  border: none;
+  margin-bottom: 16px;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+.hello_sticker {
+  width: 24px;
+  height: 24px;
+} 
+
+.text_box {
+  font-size: 16px;
+  line-height: 21px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 28px;
+}
+
+.img_container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: none;
+  margin-bottom: 28px;
+}
+
+.course_image {
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  width: 160px;
+  height: 160px;
+}
+
+.progress_line {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  top: 0%;
+}
+
+.level_layer {
+  position: absolute;
+  text-align: center;
+  left: 36%;
+  right: 36%;
+  top: 32.5%;
+  bottom: 32.5%;
+}
+
+.level_text {
+  display: inline-block;
+  margin: 0 auto;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 48px;
+  color: #FFFFFF;
+}
+
+.level_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 10px;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px);
+  border-radius: 30px;
+}
+
+.lvl_name {
+  font-size: 14px;
+  line-height: 100%;
+  color: #FFFFFF;
+}
+
+.next_lvl_text {
+  font-size: 16px;
+  line-height: 100%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.3);
+}
