@@ -42,7 +42,7 @@
   width: 200px;
   height: 200px;
   border: none;
-  margin-bottom: 28px;
+  margin: 0 32px 28px;
 }
 
 .course_image {

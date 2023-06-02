@@ -1,0 +1,24 @@
+.course_image {
+  position: absolute;
+  left: 10%;
+  top: 10%;
+}
+
+.progress_line {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  top: 0%;
+}
+
+.astro_container {
+  position: absolute;
+  left: 37%;
+  bottom: 65%;
+}
+
+.astronaut {
+  width: 43px;
+  height: 58px;
+}

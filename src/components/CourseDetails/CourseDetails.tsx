@@ -1,9 +1,14 @@
 import styles from "./CourseDetails.module.css";
 import sticker from "../../assets/waving_hand.jpg";
-import progressbar from "../../assets/planets/level_progres.png";
 import planet2 from "../../assets/planets/course2.png";
+import { CourcePlanet } from "../CourcePlanet";
 
 export const CourseDetails: React.FC = () => {
+  const planetSizes = {
+    width: "160px",
+    height: "160px",
+  };
+
   return(
     <div className={styles.detail_card}>
       <div className={styles.text_container}>
@@ -18,8 +23,11 @@ export const CourseDetails: React.FC = () => {
       </div>
 
       <div className={styles.img_container}>
-        <img src={planet2} className={styles.course_image} alt="course_image" />
-        <img src={progressbar} alt="progress_bar" className={styles.progress_line} />
+        <CourcePlanet
+          planetSizes={planetSizes} 
+          img_url={planet2}
+          isActive={true}
+        />
 
         <div className={styles.level_layer}>
           <span className={styles.level_text}>

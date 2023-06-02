@@ -1,0 +1,55 @@
+:root {
+  --panel-height: 316px;
+}
+
+.panel {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-image: url("../../assets/central_info/central_bg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-height: var(--panel-height);
+  width: 100%;
+  border-radius: 10px;
+}
+
+.planet_carousel {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.planet_container {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  border: none;
+
+  /** switch after changing concept of planet rendering */
+  bottom: 70px;
+}
+
+.progress_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  gap: 10px;
+
+  position: absolute;
+  left: calc(50% - 88px);
+  top: calc(256px - 21px);
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 30px;
+}
+
+.progress_text {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 100%;
+  color: #FFFFFF;
+}
