@@ -1,0 +1,49 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 24px;
+  gap: 24px;
+  width: 225px;
+  background: #28292B;
+  border-radius: 10px;
+}
+
+.img_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.img_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+}
+
+.text_container {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.number_completed {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 23px;
+  margin-left: 4px;
+  color: #FFFFFF;
+}
+
+.number_all {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 16px;
+}

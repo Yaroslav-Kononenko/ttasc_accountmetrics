@@ -23,7 +23,7 @@ export const CourcePlanet: React.FC<Props> = ({
   },
   isActive = false,
   austronaut = false,
-  planet = true
+  planet = true,
 }) => {
 
   const { width, height } = planetSizes;
