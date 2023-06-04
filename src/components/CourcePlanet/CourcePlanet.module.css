@@ -16,6 +16,15 @@
   position: absolute;
   left: 37%;
   bottom: 65%;
+  animation: bounce 2s;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce { 
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
 }
 
 .astronaut {

@@ -4,10 +4,12 @@
   max-width: 1440px;
   min-height: 100vh;
   background: #212224;
+  position: relative;
 }
 
 .leftPart {
   max-width: 100%;
+  position: relative;
 }
 
 .content {

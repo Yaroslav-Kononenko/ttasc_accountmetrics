@@ -22,7 +22,7 @@ export const Header: React.FC = () => {
             </div>
           </div>
 
-          <div className="notifications">
+          <div className={styles.notifications}>
               <img src={notifications} alt="notification_icon" className={styles.notifications_img} /> 
           </div>
         </div>

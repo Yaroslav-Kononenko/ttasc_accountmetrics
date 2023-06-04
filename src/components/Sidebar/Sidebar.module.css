@@ -3,7 +3,10 @@
   flex-direction: column;
   gap: 12px;
   position: sticky;
+  top: 0;
+  z-index: 999;
   flex-basis: 237px;
+  height: 100vh;
   padding: 0 12px 12px;
   background: #28292C;
   border-right: 1px solid #202225;
@@ -21,6 +24,18 @@
   order: 0;
   align-self: stretch;
   flex-grow: 1;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.logo_container:hover {
+  transform: scale(1.1);
+  transition: all 0.3s;
+}
+
+.logo_container:active {
+  transform: scale(1.05);
+  transition: all 0.3s;
 }
 
 .logo {
