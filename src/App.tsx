@@ -1,42 +1,20 @@
 import styles from "./App.module.css";
 
+//Test data
+import { detailImages, additionalCard  } from "./helpers/testdata";
+
 // Components
 import { Sidebar } from './components/Sidebar';
 import { Header } from './components/Header';
 import { CourseDetails } from "./components/CourseDetails";
 import { CourcesPanel } from "./components/CourcesPanel";
 import { ProgressCard } from "./components/ProgressCard";
+import { AdditionCard } from "./components/AdditionCard";
 
 //Types
-import { ProgressCardInfoType } from "./types/general";
+import { ProgressCardInfoType, CardDetails } from "./types/general";
 
-// Images
-import completed_icon from "./assets/card_details/completed_icon.svg";
-import folder_icon from "./assets/card_details/folder_icon.svg";
-import doc_icon from "./assets/card_details/doc_icon.svg";
-
-function App() {
-  const detailImages: ProgressCardInfoType[] = [
-    {
-      image: completed_icon,
-      completed: 3,
-      all: 15,
-      cardDescription: "Courses completed"    
-    },
-    {
-      image: folder_icon,
-      completed: 6,
-      all: 10,
-      cardDescription: "Folders add"  
-    },
-    {
-      image: doc_icon,
-      completed: 3,
-      all: 19,
-      cardDescription: "Books read"
-    }
-  ];
-
+const App: React.FC = () => {
   return (
     <div className={styles.app}>
       <Sidebar />
@@ -52,7 +30,10 @@ function App() {
               <div className={styles.right_bottom_box}>
                 {detailImages.map((imgInfo: ProgressCardInfoType) => {
                   return(
-                    <ProgressCard cardInfo={imgInfo} key={imgInfo.cardDescription} />
+                    <ProgressCard
+                      cardInfo={imgInfo}
+                      key={imgInfo.cardDescription}
+                    />
                   );
                 })}
               </div>
@@ -60,7 +41,9 @@ function App() {
           </div>
 
           <div className={styles.bottom_container}>
-            
+            {additionalCard.map((card: CardDetails) => 
+              <AdditionCard additionalInfo={card.details} key={card.id} />
+            )}
           </div>
         </div>
       </div>

@@ -1,19 +1,18 @@
-:root {
-  --panel-height: 314px;
-}
-
 .panel {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
   position: relative;
-  background-image: url("../../assets/central_info/central_bg.png");
-  background-size: contain;
+  background-image: url("../../assets/central_info/space_bg.svg");
+  background-size: auto;
+  background-position: center;
   background-repeat: no-repeat;
-  min-height: var(--panel-height);
+  height: 314px;
   width: 100%;
   border-radius: 10px;
+  flex-grow: 1;
+  flex-shrink: 1;
 }
 
 .planet_carousel {
@@ -42,7 +41,7 @@
   align-items: center;
   padding: 12px 24px;
   gap: 10px;
-  height: 18px;
+  height: 42px;
   margin-bottom: 16px;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px);
