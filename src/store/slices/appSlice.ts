@@ -18,6 +18,7 @@ interface StatisticsInterface {
 interface AppState {
   mainData: MainDataInterface | null,
   statistics: StatisticsInterface | null;
+  loading: boolean;
 }
 
 const initialState: AppState = {
@@ -33,7 +34,8 @@ const initialState: AppState = {
     foldersAdded: null,
     books: null,
     booksEnded: null,
-  }
+  },
+  loading: false,
 };
 
 const appSlice = createSlice({
@@ -52,8 +54,11 @@ const appSlice = createSlice({
     clearStatistic(state) {
       state.statistics = null;
     },
+    setIsLoading(state, action: PayloadAction<boolean>) {
+      state.loading = action.payload;
+    }
   },
 });
 
-export const { setMainData, clearMainData, setStatistics, clearStatistic} = appSlice.actions;
+export const { setMainData, clearMainData, setStatistics, clearStatistic, setIsLoading } = appSlice.actions;
 export default appSlice.reducer;

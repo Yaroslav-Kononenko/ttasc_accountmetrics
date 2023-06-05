@@ -1,7 +1,10 @@
 import styles from "./App.module.css";
+import { useState, useEffect } from "react";
+import { serverEmulation } from "./server/emulation";
 
 //Test data
-import { detailImages, additionalCard  } from "./helpers/testdata";
+import { detailImages } from "./helpers/testdata";
+import { initialStatistics } from "./helpers/initials";
 
 // Components
 import { Sidebar } from './components/Sidebar';
@@ -9,12 +12,29 @@ import { Header } from './components/Header';
 import { CourseDetails } from "./components/CourseDetails";
 import { CourcesPanel } from "./components/CourcesPanel";
 import { ProgressCard } from "./components/ProgressCard";
-import { AdditionCard } from "./components/AdditionCard";
+import { BottomPart } from "./components/BottomPart";
 
 //Types
-import { ProgressCardInfoType, CardDetails } from "./types/general";
+import { ProgressCardInfoType } from "./types/general";
 
 const App: React.FC = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [statCards, setStatCards] = useState<ProgressCardInfoType[]>(initialStatistics)
+
+  const obtainStatisticsData = async () => {
+    setIsLoading(true);
+    const response = await serverEmulation("/statistics_info");
+    if(response) {
+      setStatCards(response.data);
+      setIsLoading(false);
+    }
+  };
+  
+  useEffect(() => {
+    console.log(statCards);
+    obtainStatisticsData();
+  }, [])
+  
   return (
     <div className={styles.app}>
       <Sidebar />
@@ -40,11 +60,7 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          <div className={styles.bottom_container}>
-            {additionalCard.map((card: CardDetails) => 
-              <AdditionCard additionalInfo={card.details} key={card.id} />
-            )}
-          </div>
+          <BottomPart />
         </div>
       </div>
     </div>

@@ -36,13 +36,6 @@
 
 .right_bottom_box {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
-}
-
-.bottom_container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 24px;
 }

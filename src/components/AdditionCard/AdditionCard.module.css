@@ -1,3 +1,11 @@
+.container {
+  width: 364px;
+  height: 202px;
+  background: #28292C;
+  border-radius: 10px;
+  position: relative;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -5,9 +13,6 @@
   box-sizing: border-box;
   padding: 16px;
   gap: 16px;
-  width: 364px;
-  height: 202px;
-  background: #28292C;
   border-radius: 10px;
   flex: none;
   order: 0;
