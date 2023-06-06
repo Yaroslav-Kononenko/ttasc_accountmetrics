@@ -1,9 +1,15 @@
 import styles from "./Header.module.css";
-import avatar from "../../assets/header/avatar.png";
 import switcher from "../../assets/header/lang_arrow.svg";
 import notifications from "../../assets/header/notification.svg";
+import { MainDataType } from "../../types/general";
 
-export const Header: React.FC = () => {
+type Props = {
+  accountData: MainDataType
+};
+
+export const Header: React.FC<Props> = ({accountData}) => {
+  const { name, role, image } = accountData;
+
   return(
     <header className={styles.header}>
       <div className={styles.searchbar}>
@@ -31,19 +37,19 @@ export const Header: React.FC = () => {
           <div className={styles.userdata_text}>
             <div className="">
               <span className={styles.username}>
-                Peter
+                {name}
               </span>
             </div>
 
             <div className="">
               <span className={styles.userstatus}>
-                Admin
+                {role}
               </span>
             </div>
           </div>
 
           <div className={styles.avatar_container}>
-            <img src={avatar} alt="avatar" className={styles.avatar} />
+            <img src={image} alt="avatar" className={styles.avatar} />
 
             <div className={styles.status_pointer}></div>
           </div>

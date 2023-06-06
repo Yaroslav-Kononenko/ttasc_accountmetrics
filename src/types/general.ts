@@ -1,3 +1,10 @@
+export type MainDataType = {
+  id: string | null;
+  name: string | null;
+  role: string | null;
+  image: any | null;
+}
+
 export type ProgressCardInfoType = {
   image: any;
   completed: number;

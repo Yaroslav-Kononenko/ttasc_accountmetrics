@@ -1,10 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface MainDataInterface {
-  id: string | null;
-  name: string | null;
-  role: string | null;
-}
+import { ProgressCardInfoType } from '../../types/general';
+import { initialStatistics } from '../../helpers/initials';
+import adminInitImg from "../../assets/header/avatar.png";
+import { MainDataType } from '../../types/general';
 
 interface StatisticsInterface {
   courses: number | null;
@@ -16,16 +14,20 @@ interface StatisticsInterface {
 }
 
 interface AppState {
-  mainData: MainDataInterface | null,
+  mainData: MainDataType,
   statistics: StatisticsInterface | null;
-  loading: boolean;
+  statisticCardData: ProgressCardInfoType[];
+  coursesData: any;
+  isLoading: boolean;
 }
 
+//Main data initial, like info after login, which obtained from server
 const initialState: AppState = {
   mainData: {
     id: "",
-    name: "",
-    role: "",
+    name: "Peter",
+    role: "Admin",
+    image: adminInitImg,
   },
   statistics: {
     courses: null,
@@ -35,18 +37,17 @@ const initialState: AppState = {
     books: null,
     booksEnded: null,
   },
-  loading: false,
+  coursesData: null,
+  statisticCardData: initialStatistics,
+  isLoading: false,
 };
 
 const appSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    setMainData(state, action: PayloadAction<MainDataInterface>) {
+    setMainData(state, action: PayloadAction<MainDataType>) {
       state.mainData = action.payload;
-    },
-    clearMainData(state) {
-      state.mainData = null;
     },
     setStatistics(state, action: PayloadAction<StatisticsInterface>) {
       state.statistics = action.payload;
@@ -54,11 +55,17 @@ const appSlice = createSlice({
     clearStatistic(state) {
       state.statistics = null;
     },
-    setIsLoading(state, action: PayloadAction<boolean>) {
-      state.loading = action.payload;
-    }
+    setStatisticsData(state, action: PayloadAction<ProgressCardInfoType[]>) {
+      state.statisticCardData = action.payload;
+    },
+    startLoading(state) {
+      state.isLoading = true;
+    },
+    finishLoading(state) {
+      state.isLoading = false;
+    },
   },
 });
 
-export const { setMainData, clearMainData, setStatistics, clearStatistic, setIsLoading } = appSlice.actions;
+export const { setMainData, setStatistics, clearStatistic, setStatisticsData, startLoading, finishLoading } = appSlice.actions;
 export default appSlice.reducer;

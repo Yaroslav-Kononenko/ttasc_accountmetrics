@@ -1,9 +1,8 @@
 import styles from "./App.module.css";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { serverEmulation } from "./server/emulation";
 
 //Test data
-import { detailImages } from "./helpers/testdata";
 import { initialStatistics } from "./helpers/initials";
 
 // Components
@@ -16,30 +15,40 @@ import { BottomPart } from "./components/BottomPart";
 
 //Types
 import { ProgressCardInfoType } from "./types/general";
+import { useDispatch, useSelector } from 'react-redux';
+import { startLoading, finishLoading, setStatisticsData } from './store/slices/appSlice';
+import { RootState } from "./store/store";
 
 const App: React.FC = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [statCards, setStatCards] = useState<ProgressCardInfoType[]>(initialStatistics)
+  const dispatch = useDispatch();
+  const data = useSelector((state:  RootState) => state.app.statisticCardData);
+  const accountData = useSelector((state: RootState) => state.app.mainData);
+  const cardData = data ? data : initialStatistics;
+  console.log(accountData)
 
-  const obtainStatisticsData = async () => {
-    setIsLoading(true);
-    const response = await serverEmulation("/statistics_info");
-    if(response) {
-      setStatCards(response.data);
-      setIsLoading(false);
-    }
-  };
-  
   useEffect(() => {
-    console.log(statCards);
-    obtainStatisticsData();
-  }, [])
+    const fetchData = async () => {
+      try {
+        dispatch(startLoading());
+        const response = await serverEmulation("/statistics_info");
+        if(!!response) {
+          dispatch(setStatisticsData(response.data));
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        dispatch(finishLoading());
+      }
+    };
+
+    fetchData();
+  }, [dispatch]);
   
   return (
     <div className={styles.app}>
       <Sidebar />
       <div className={styles.leftPart}>
-        <Header />
+        <Header accountData={accountData} />
         <div className={styles.content}>
           <div className={styles.top_container}>
             <CourseDetails />
@@ -48,7 +57,7 @@ const App: React.FC = () => {
               <CourcesPanel />
 
               <div className={styles.right_bottom_box}>
-                {detailImages.map((imgInfo: ProgressCardInfoType) => {
+                {cardData.map((imgInfo: ProgressCardInfoType) => {
                   return(
                     <ProgressCard
                       cardInfo={imgInfo}
