@@ -1,12 +1,13 @@
 import styles from "./ProgressCard.module.css";
 import { ProgressCardInfoType } from "../../types/general";
 import { ProgressLine } from "../ProgressLine";
+import React from "react";
 
 type Props = {
   cardInfo: ProgressCardInfoType;
 };
 
-export const ProgressCard: React.FC<Props> = ({cardInfo}) => {
+export const ProgressCard: React.FC<Props> = React.memo(({cardInfo}) => {
   const { image, all, completed, cardDescription } = cardInfo;
 
   return(
@@ -36,4 +37,4 @@ export const ProgressCard: React.FC<Props> = ({cardInfo}) => {
       </div>
     </div>
   );
-}
+});

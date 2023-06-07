@@ -2,12 +2,13 @@ import styles from "./Header.module.css";
 import switcher from "../../assets/header/lang_arrow.svg";
 import notifications from "../../assets/header/notification.svg";
 import { MainDataType } from "../../types/general";
+import React from "react";
 
 type Props = {
   accountData: MainDataType
 };
 
-export const Header: React.FC<Props> = ({accountData}) => {
+export const Header: React.FC<Props> = React.memo(({accountData}) => {
   const { name, role, image } = accountData;
 
   return(
@@ -57,4 +58,4 @@ export const Header: React.FC<Props> = ({accountData}) => {
       </div>
     </header>
   );
-};
+});

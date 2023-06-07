@@ -15,7 +15,7 @@ type NavItem = {
   activeLogoUrl?: string;
 }
 
-export const Sidebar: React.FC = () => {
+export const Sidebar: React.FC = React.memo(() => {
   return (
     <div className={styles.sidebar}>
       <div className={styles.logo_container}>
@@ -65,7 +65,7 @@ export const Sidebar: React.FC = () => {
       </div>
     </div>
   );
-};
+});
 
 export const navList: NavItem[] = [
   {
