@@ -6,7 +6,7 @@ import statistic_logo  from "../assets/additional_info/book_icon.svg";
 import course1 from "../assets/additional_info/course1.png";
 import course2 from "../assets/additional_info/course2.png";
 
-import { ProgressCardInfoType, AdditionalInfoType, CardDetails } from "../types/general";
+import { ProgressCardInfoType, AdditionalInfoType, CardDetails, CoursesResponseType } from "../types/general";
 
 export const detailImages: ProgressCardInfoType[] = [
   {
@@ -29,7 +29,7 @@ export const detailImages: ProgressCardInfoType[] = [
   }
 ];
 
-export const courseCardInfo: AdditionalInfoType = {
+const courseCardInfo: AdditionalInfoType = {
   title: "New Additions",
   courses: 13,
   course_img: statistic_logo,
@@ -130,4 +130,42 @@ export const additionalCard: CardDetails[] = [
     id: "333",
     details: courseCardInfo
   }
+];
+
+export const mainCources: CoursesResponseType[] = [
+  {
+    id: "1",
+    courseTitle: "course1",
+    levels: 10,
+    currentLvl: 4,
+    percentCurrentLvL: 37,
+  },
+  {
+    id: "2",
+    courseTitle: "course2",
+    levels: 10,
+    currentLvl: 4,
+    percentCurrentLvL: 37,
+  },
+  {
+    id: "3",
+    courseTitle: "course3",
+    levels: 10,
+    currentLvl: 4,
+    percentCurrentLvL: 37,
+  },
+  {
+    id: "4",
+    courseTitle: "course4",
+    levels: 10,
+    currentLvl: 4,
+    percentCurrentLvL: 37,
+  },
+  {
+    id: "5",
+    courseTitle: "course5",
+    levels: 10,
+    currentLvl: 4,
+    percentCurrentLvL: 37,
+  },
 ];

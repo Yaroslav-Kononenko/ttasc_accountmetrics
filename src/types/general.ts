@@ -1,3 +1,10 @@
+export type MainDataType = {
+  id: string | null;
+  name: string | null;
+  role: string | null;
+  image: any | null;
+}
+
 export type ProgressCardInfoType = {
   image: any;
   completed: number;
@@ -21,3 +28,18 @@ export type CardDetails = {
   id: string | number;
   details: AdditionalInfoType;
 };
+
+export type CoursesResponseType = {
+  id: string,
+  courseTitle: string | null,
+  levels: number,
+  currentLvl: number,
+  percentCurrentLvL: number,
+};
+
+export type SignInDataType = {
+  email: string;
+  password: string;
+};
+
+export type EndpointEmulationType = "/main_courses" | "/cards_info" | "/statistics_info" | "/additional_info";

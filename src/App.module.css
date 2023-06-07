@@ -22,6 +22,9 @@
   width: 100%;
   gap: 24px;
   border: none;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex: 1;
   margin-bottom: 32px;
 }
 
@@ -36,13 +39,6 @@
 
 .right_bottom_box {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
-}
-
-.bottom_container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 24px;
 }
