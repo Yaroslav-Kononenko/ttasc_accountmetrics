@@ -1,10 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface MainDataInterface {
-  id: string | null;
-  name: string | null;
-  role: string | null;
-}
+import { ProgressCardInfoType } from '../../types/general';
+import { initialStatistics } from '../../helpers/initials';
+import adminInitImg from "../../assets/header/avatar.png";
+import { MainDataType, CoursesResponseType } from '../../types/general';
 
 interface StatisticsInterface {
   courses: number | null;
@@ -16,15 +14,20 @@ interface StatisticsInterface {
 }
 
 interface AppState {
-  mainData: MainDataInterface | null,
+  mainData: MainDataType,
   statistics: StatisticsInterface | null;
+  statisticCardData: ProgressCardInfoType[];
+  coursesData: CoursesResponseType[];
+  isLoading: boolean;
 }
 
+//Main data initial, like info after login, which obtained from server
 const initialState: AppState = {
   mainData: {
     id: "",
-    name: "",
-    role: "",
+    name: "Peter",
+    role: "Admin",
+    image: adminInitImg,
   },
   statistics: {
     courses: null,
@@ -33,18 +36,24 @@ const initialState: AppState = {
     foldersAdded: null,
     books: null,
     booksEnded: null,
-  }
+  },
+  coursesData: [{
+    id: "",
+    courseTitle: "",
+    levels: 0,
+    currentLvl: 0,
+    percentCurrentLvL: 0
+  }],
+  statisticCardData: initialStatistics,
+  isLoading: false,
 };
 
 const appSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    setMainData(state, action: PayloadAction<MainDataInterface>) {
+    setMainData(state, action: PayloadAction<MainDataType>) {
       state.mainData = action.payload;
-    },
-    clearMainData(state) {
-      state.mainData = null;
     },
     setStatistics(state, action: PayloadAction<StatisticsInterface>) {
       state.statistics = action.payload;
@@ -52,8 +61,20 @@ const appSlice = createSlice({
     clearStatistic(state) {
       state.statistics = null;
     },
+    setCourses(state, action: PayloadAction<ProgressCardInfoType[]>) {
+      state.statisticCardData = action.payload;
+    },
+    setCoursesMainData(state, action: PayloadAction<CoursesResponseType[]>) {
+      state.coursesData = action.payload;
+    },
+    startLoading(state) {
+      state.isLoading = true;
+    },
+    finishLoading(state) {
+      state.isLoading = false;
+    },
   },
 });
 
-export const { setMainData, clearMainData, setStatistics, clearStatistic} = appSlice.actions;
+export const { setMainData, setStatistics, clearStatistic, setCourses, setCoursesMainData, startLoading, finishLoading } = appSlice.actions;
 export default appSlice.reducer;

@@ -1,21 +1,12 @@
 import styles from "./CourcesPanel.module.css";
 import { CourcePlanet } from "../CourcePlanet";
-/** 
-import planet1 from "../../assets/planets/course1.svg";
-import planet2 from "../../assets/planets/course2.png";
-import planet3 from "../../assets/planets/course3.png";
-import planet4 from "../../assets/planets/course4.png";
-import planet5 from "../../assets/planets/course5.png";
-*/
+import { CoursesResponseType } from "../../types/general";
 
-export const CourcesPanel: React.FC = () => {
-  const planets = [
-    { id: "1", planet: "" }, 
-    { id: "2", planet: "" }, 
-    { id: "3", planet: "" }, 
-    { id: "4", planet: "" }, 
-    { id: "5", planet: "" }
-  ];
+type Props = {
+  mainCourses: CoursesResponseType[] | [];
+}
+
+export const CourcesPanel: React.FC<Props> = ({mainCourses}) => {
   const planetSizes = {
     width: "105px",
     height: "105px"
@@ -24,11 +15,10 @@ export const CourcesPanel: React.FC = () => {
   return(
     <div className={styles.panel}>
       <div className={styles.planet_carousel}>
-        {planets.map((planetInfo => {
+        {mainCourses.map((planetInfo => {
           return(
             <CourcePlanet 
               planetSizes={planetSizes}
-              img_url={planetInfo.planet}
               container_style={styles.planet_container}
               isActive={planetInfo.id === "2"}
               planet={false}
@@ -41,7 +31,7 @@ export const CourcesPanel: React.FC = () => {
 
       <div className={styles.progress_box}>
         <div className={styles.progress_text}>
-          37%
+          {mainCourses[1].percentCurrentLvL}%
         </div>
 
         <div className={styles.progress_text}>
