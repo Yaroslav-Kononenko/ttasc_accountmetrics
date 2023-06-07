@@ -12,7 +12,7 @@ export const CourcesPanel: React.FC<Props> = ({mainCourses}) => {
     height: "105px"
   };
 
-  const currentProgress = mainCourses[1].percentCurrentLvL ? mainCourses[1].percentCurrentLvL : 0;
+  const currentProgress = mainCourses[1] ? mainCourses[1].percentCurrentLvL : 0;
 
   return(
     <div className={styles.panel}>

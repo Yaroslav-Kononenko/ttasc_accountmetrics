@@ -1,7 +1,7 @@
 import styles from "./BottomPart.module.css";
 import { CardDetails } from "../../types/general";
 import { AdditionCard } from "../AdditionCard";
-import { useState, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { serverEmulation } from "../../server/emulation";
 import { initialAddInfo } from "../../helpers/initials";
 
@@ -12,14 +12,19 @@ export const BottomPart: React.FC = () => {
   }]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  useMemo( async () => {
-    setIsLoading(true);
-    const response = await serverEmulation("/additional_info");
-    if(response) {
-      setCards(response.data);
-      setIsLoading(false);
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      const response = await serverEmulation("/additional_info");
+      if(response) {
+        setCards(response.data);
+        setIsLoading(false);
+      }
     }
+
+    fetchData();
   }, [])
+  
 
   return(
     <div className={styles.bottom_container}>
