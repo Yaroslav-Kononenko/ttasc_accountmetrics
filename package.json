@@ -1,7 +1,7 @@
 {
   "name": "ttasc_accountmetrics",
   "version": "0.1.0",
-  "homepage": "https://Yaroslav-Kononenko.github.io/ttask_accountmetrics",
+  "homepage": "https://Yaroslav-Kononenko.github.io/ttasc_accountmetrics",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
