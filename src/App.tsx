@@ -1,9 +1,9 @@
 import styles from "./App.module.css";
 import { useEffect } from "react";
 import { serverEmulation } from "./server/emulation";
-
-//Test data
 import { initialStatistics } from "./helpers/initials";
+import { useDispatch, useSelector } from 'react-redux';
+import { startLoading, finishLoading, setCourses, setCoursesMainData } from './store/slices/appSlice';
 
 // Components
 import { Sidebar } from './components/Sidebar';
@@ -15,24 +15,25 @@ import { BottomPart } from "./components/BottomPart";
 
 //Types
 import { ProgressCardInfoType } from "./types/general";
-import { useDispatch, useSelector } from 'react-redux';
-import { startLoading, finishLoading, setStatisticsData } from './store/slices/appSlice';
 import { RootState } from "./store/store";
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
   const data = useSelector((state:  RootState) => state.app.statisticCardData);
   const accountData = useSelector((state: RootState) => state.app.mainData);
+  const mainCourses = useSelector((state: RootState) => state.app.coursesData);
+  
   const cardData = data ? data : initialStatistics;
-  console.log(accountData)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         dispatch(startLoading());
         const response = await serverEmulation("/statistics_info");
-        if(!!response) {
-          dispatch(setStatisticsData(response.data));
+        const mainInfo = await serverEmulation("/main_courses");
+        if(!!response && !!mainInfo) {
+          dispatch(setCourses(response.data));
+          dispatch(setCoursesMainData(mainInfo.data))
         }
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -54,7 +55,7 @@ const App: React.FC = () => {
             <CourseDetails />
 
             <div className={styles.right_container}>
-              <CourcesPanel />
+              <CourcesPanel mainCourses={mainCourses} />
 
               <div className={styles.right_bottom_box}>
                 {cardData.map((imgInfo: ProgressCardInfoType) => {

@@ -4,7 +4,7 @@ import austronaut_img from "../../assets/central_info/austronaut.png";
 
 type Props = {
   container_style?: string;
-  img_url: any;
+  img_url?: any;
   planetSizes?: {
     width?: string;
     height?: string;

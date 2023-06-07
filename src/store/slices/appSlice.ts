@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ProgressCardInfoType } from '../../types/general';
 import { initialStatistics } from '../../helpers/initials';
 import adminInitImg from "../../assets/header/avatar.png";
-import { MainDataType } from '../../types/general';
+import { MainDataType, CoursesResponseType } from '../../types/general';
 
 interface StatisticsInterface {
   courses: number | null;
@@ -17,7 +17,7 @@ interface AppState {
   mainData: MainDataType,
   statistics: StatisticsInterface | null;
   statisticCardData: ProgressCardInfoType[];
-  coursesData: any;
+  coursesData: CoursesResponseType[];
   isLoading: boolean;
 }
 
@@ -37,7 +37,13 @@ const initialState: AppState = {
     books: null,
     booksEnded: null,
   },
-  coursesData: null,
+  coursesData: [{
+    id: "",
+    courseTitle: "",
+    levels: 0,
+    currentLvl: 0,
+    percentCurrentLvL: 0
+  }],
   statisticCardData: initialStatistics,
   isLoading: false,
 };
@@ -55,8 +61,11 @@ const appSlice = createSlice({
     clearStatistic(state) {
       state.statistics = null;
     },
-    setStatisticsData(state, action: PayloadAction<ProgressCardInfoType[]>) {
+    setCourses(state, action: PayloadAction<ProgressCardInfoType[]>) {
       state.statisticCardData = action.payload;
+    },
+    setCoursesMainData(state, action: PayloadAction<CoursesResponseType[]>) {
+      state.coursesData = action.payload;
     },
     startLoading(state) {
       state.isLoading = true;
@@ -67,5 +76,5 @@ const appSlice = createSlice({
   },
 });
 
-export const { setMainData, setStatistics, clearStatistic, setStatisticsData, startLoading, finishLoading } = appSlice.actions;
+export const { setMainData, setStatistics, clearStatistic, setCourses, setCoursesMainData, startLoading, finishLoading } = appSlice.actions;
 export default appSlice.reducer;
