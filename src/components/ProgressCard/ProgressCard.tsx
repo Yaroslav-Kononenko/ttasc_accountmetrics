@@ -2,22 +2,25 @@ import styles from "./ProgressCard.module.css";
 import { ProgressCardInfoType } from "../../types/general";
 import { ProgressLine } from "../ProgressLine";
 import React from "react";
+import { Loader } from "../Loader";
 
 type Props = {
   cardInfo: ProgressCardInfoType;
+  isLoading: boolean;
 };
 
-export const ProgressCard: React.FC<Props> = React.memo(({cardInfo}) => {
-  const { image, all, completed, cardDescription } = cardInfo;
+export const ProgressCard: React.FC<Props> = React.memo(({cardInfo, isLoading}) => {
+  const { all, completed, cardDescription } = cardInfo;
+  const imgUrl = !!cardInfo.image && (<img src={cardInfo.image} alt={cardDescription} />);
 
   return(
     <div className={styles.card}>
       <div className={styles.img_container}>
         <div className={styles.img_box}>
-          <img src={image} alt={cardDescription} />
+          {isLoading ? <Loader/> : imgUrl}
         </div>
 
-        <ProgressLine />
+        {!isLoading && !!cardInfo.image && <ProgressLine />}
       </div>
       
       <div className={styles.text_container}>

@@ -22,6 +22,7 @@ const App: React.FC = () => {
   const data = useSelector((state:  RootState) => state.app.statisticCardData);
   const accountData = useSelector((state: RootState) => state.app.mainData);
   const mainCourses = useSelector((state: RootState) => state.app.coursesData);
+  const isLoading = useSelector((state: RootState) => state.app.isLoading);
   
   const cardData = data ? data : initialStatistics;
 
@@ -62,6 +63,7 @@ const App: React.FC = () => {
                   return(
                     <ProgressCard
                       cardInfo={imgInfo}
+                      isLoading={isLoading}
                       key={imgInfo.cardDescription}
                     />
                   );

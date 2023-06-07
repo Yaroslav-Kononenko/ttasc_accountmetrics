@@ -16,19 +16,16 @@ export const initialAddInfo: AdditionalInfoType = {
 
 export const initialStatistics: ProgressCardInfoType[] = [
   {
-    image: "",
     completed: 0,
     all: 0,
     cardDescription: "Card 1..."    
   },
   {
-    image: "",
     completed: 0,
     all: 0,
     cardDescription: "Card 2..."  
   },
   {
-    image: "",
     completed: 0,
     all: 0,
     cardDescription: "Card 3..."

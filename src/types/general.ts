@@ -6,7 +6,7 @@ export type MainDataType = {
 }
 
 export type ProgressCardInfoType = {
-  image: any;
+  image?: any;
   completed: number;
   all: number;
   cardDescription: string;
