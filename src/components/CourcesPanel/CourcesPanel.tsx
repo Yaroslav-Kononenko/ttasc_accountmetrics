@@ -12,6 +12,8 @@ export const CourcesPanel: React.FC<Props> = ({mainCourses}) => {
     height: "105px"
   };
 
+  const currentProgress = mainCourses[1].percentCurrentLvL ? mainCourses[1].percentCurrentLvL : 0;
+
   return(
     <div className={styles.panel}>
       <div className={styles.planet_carousel}>
@@ -31,7 +33,7 @@ export const CourcesPanel: React.FC<Props> = ({mainCourses}) => {
 
       <div className={styles.progress_box}>
         <div className={styles.progress_text}>
-          {mainCourses[1].percentCurrentLvL}%
+          {currentProgress}%
         </div>
 
         <div className={styles.progress_text}>
