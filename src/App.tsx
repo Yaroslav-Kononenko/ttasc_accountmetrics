@@ -16,7 +16,7 @@ const App: React.FC = () => {
     <div className={styles.app}>
       <Routes>
         <Route path="/ttasc_accountmetrics" element={<Layout />} >
-          <Route path="home" element={<Home />} />
+          <Route index path="home" element={<Home />} />
           <Route path="courses" element={<Courses />} />
           <Route path="*" element={<NotFountPage />}  />
         </Route>
