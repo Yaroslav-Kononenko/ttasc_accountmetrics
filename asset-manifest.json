@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ttasc_accountmetrics/static/css/main.af459ed0.css",
-    "main.js": "/ttasc_accountmetrics/static/js/main.da973507.js",
+    "main.css": "/ttasc_accountmetrics/static/css/main.043686ac.css",
+    "main.js": "/ttasc_accountmetrics/static/js/main.4d1df999.js",
     "static/media/space_bg.svg": "/ttasc_accountmetrics/static/media/space_bg.95d45d9a94388b27c9c1.svg",
     "static/media/course2.png": "/ttasc_accountmetrics/static/media/course2.2978eebab97b3145fdb7.png",
     "static/media/avatar.png": "/ttasc_accountmetrics/static/media/avatar.a88f69bec0a6c4fb8722.png",
@@ -23,11 +23,11 @@
     "static/media/cross.svg": "/ttasc_accountmetrics/static/media/cross.b98a24dcbee05e86d0188946211dd70b.svg",
     "static/media/dotts.svg": "/ttasc_accountmetrics/static/media/dotts.631177909533f58d2f200a2a0230b109.svg",
     "static/media/lang_arrow.svg": "/ttasc_accountmetrics/static/media/lang_arrow.e0be7ce1ce7b678394a43e43c3992166.svg",
-    "main.af459ed0.css.map": "/ttasc_accountmetrics/static/css/main.af459ed0.css.map",
-    "main.da973507.js.map": "/ttasc_accountmetrics/static/js/main.da973507.js.map"
+    "main.043686ac.css.map": "/ttasc_accountmetrics/static/css/main.043686ac.css.map",
+    "main.4d1df999.js.map": "/ttasc_accountmetrics/static/js/main.4d1df999.js.map"
   },
   "entrypoints": [
-    "static/css/main.af459ed0.css",
-    "static/js/main.da973507.js"
+    "static/css/main.043686ac.css",
+    "static/js/main.4d1df999.js"
   ]
 }
