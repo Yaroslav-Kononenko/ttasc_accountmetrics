@@ -87,6 +87,7 @@
   max-width: 213px;
   order: 1;
   flex-grow: 1;
+  text-decoration: none;
   transition: background 0.3s;
 }
 

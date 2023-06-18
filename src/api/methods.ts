@@ -1,6 +1,6 @@
 const accessToken = localStorage.getItem('accessToken');
 
-export const API_BASE_URL = 'http://example.com/api';
+export const API_BASE_URL = '/ttasc_accountmetrics';
 
 const handleResponse = async (response: Response) => {
   if (response.ok) {

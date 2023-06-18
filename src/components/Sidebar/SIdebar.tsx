@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./Sidebar.module.css";
 import logobird from "../../assets/sidebar/logo.svg";
 import home_active from "../../assets/sidebar/home_active.svg";
@@ -28,7 +29,8 @@ export const Sidebar: React.FC = React.memo(() => {
         <div className={styles.nav}>
           {navList.map((navItem: NavItem)=>{
               return(
-                <div 
+                <Link 
+                  to={navItem.url}
                   key={navItem.nav_text} 
                   className={`
                     ${styles.nav_item}
@@ -48,7 +50,7 @@ export const Sidebar: React.FC = React.memo(() => {
                   >
                     {navItem.nav_text}
                   </span> 
-                </div>
+                </Link>
               );
             })
           }
@@ -70,28 +72,28 @@ export const Sidebar: React.FC = React.memo(() => {
 export const navList: NavItem[] = [
   {
     nav_text: "Home",
-    url: "",
+    url: "home",
     logoUrl: home_active,
     activeLogoUrl: home_active,
   },
   {
     nav_text: "Courses",
-    url: "",
+    url: "courses",
     logoUrl: courses,
   },
   {
     nav_text: "Libraries",
-    url: "",
+    url: "libraries",
     logoUrl: libraries,
   },
   {
     nav_text: "Statistics",
-    url: "",
+    url: "statistics",
     logoUrl: statistics,
   },
   {
     nav_text: "Users guideline",
-    url: "",
+    url: "users_guideline",
     logoUrl: guideline,
   },
 ];
