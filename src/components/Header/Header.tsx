@@ -1,14 +1,12 @@
 import styles from "./Header.module.css";
 import switcher from "../../assets/header/lang_arrow.svg";
 import notifications from "../../assets/header/notification.svg";
-import { MainDataType } from "../../types/general";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 import React from "react";
 
-type Props = {
-  accountData: MainDataType
-};
-
-export const Header: React.FC<Props> = React.memo(({accountData}) => {
+export const Header: React.FC = React.memo(() => {
+  const accountData = useSelector((state: RootState) => state.app.mainData);
   const { name, role, image } = accountData;
 
   return(
