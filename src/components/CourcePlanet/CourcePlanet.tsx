@@ -17,26 +17,18 @@ type Props = {
 export const CourcePlanet: React.FC<Props> = ({
   container_style,
   img_url,
-  planetSizes = {
-    width: "100px",
-    height: "100px",
-  },
   isActive = false,
   austronaut = false,
-  planet = true,
 }) => {
 
-  const { width, height } = planetSizes;
   const activeImg = !isActive ? "hidden" : "visible";
   const activeAustronaut = !austronaut ? "hidden" : "visible";
-  const isPlanetVisible = !planet ? "hidden" : "visible";
 
   return(
     <div className={container_style}>
       <img 
         src={img_url}
         className={styles.course_image}
-        style={{width: width, height: height, visibility: isPlanetVisible }}
         alt="course_image"
       />
 

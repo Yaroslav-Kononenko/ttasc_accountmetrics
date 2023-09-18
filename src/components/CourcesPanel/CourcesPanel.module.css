@@ -4,7 +4,7 @@
   align-items: center;
   flex-direction: column;
   position: relative;
-  background-image: url("../../assets/central_info/space_bg.svg");
+  background-image: url("../../assets/planets/SpaceBG.png");
   background-size: auto;
   background-position: center;
   background-repeat: no-repeat;
@@ -14,25 +14,27 @@
   flex-grow: 1;
   flex-shrink: 1;
   flex: 1;
+  overflow: hidden;
 }
 
 .planet_carousel {
   display: flex;
   position: absolute;
   top: calc(50% - 105px / 2);
-  justify-content: space-between;
-  width: 100%;
+  gap: 50px;
+  overflow: hidden;
+  cursor: grab;
 }
 
 .planet_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  width: 105px;
-  height: 105px;
+  width: 130px;
+  height: 130px;
   border: none;
-
-  /** switch after changing concept of planet rendering */
-  left: 7px;
-  bottom: 5px;
+  cursor: pointer;
 }
 
 .progress_box {

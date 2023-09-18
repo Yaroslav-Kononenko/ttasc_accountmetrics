@@ -1,6 +1,6 @@
 const accessToken = localStorage.getItem('accessToken');
 
-export const API_BASE_URL = '/ttasc_accountmetrics';
+export const BASE_URL = '/ttasc_accountmetrics';
 
 const handleResponse = async (response: Response) => {
   if (response.ok) {
@@ -29,7 +29,7 @@ const handleOriginalRequest = async (request: Request, accessToken: string | nul
 };
 
 export const get = async (url: string) => {
-  const request = new Request(`${API_BASE_URL}${url}`, {
+  const request = new Request(`${BASE_URL}${url}`, {
     method: 'GET',
   });
 
@@ -37,7 +37,7 @@ export const get = async (url: string) => {
 };
 
 export const post = async (url: string, data?: object) => {
-  const request = new Request(`${API_BASE_URL}${url}`, {
+  const request = new Request(`${BASE_URL}${url}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ export const post = async (url: string, data?: object) => {
 };
 
 export const put = async (url: string, data: object) => {
-  const request = new Request(`${API_BASE_URL}${url}`, {
+  const request = new Request(`${BASE_URL}${url}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ export const put = async (url: string, data: object) => {
 };
 
 export const del = async (url: string) => {
-  const request = new Request(`${API_BASE_URL}${url}`, {
+  const request = new Request(`${BASE_URL}${url}`, {
     method: 'DELETE',
   });
 

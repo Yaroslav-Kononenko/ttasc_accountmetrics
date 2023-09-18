@@ -1,22 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import styles from "./Sidebar.module.css";
 import logobird from "../../assets/sidebar/logo.svg";
-import home_active from "../../assets/sidebar/home_active.svg";
+import home from "../../assets/sidebar/home.svg";
 import courses from "../../assets/sidebar/courses.svg";
 import libraries from "../../assets/sidebar/libraries.svg";
 import statistics from "../../assets/sidebar/statistics.svg";
 import guideline from "../../assets/sidebar/users_guideline.svg";
-import logout from "../../assets/sidebar/logout.svg"
+import logout from "../../assets/sidebar/logout.svg";
 
 type NavItem = {
   nav_text: string;
   url: string;
   logoUrl: string;
-  activeLogoUrl?: string;
 }
 
 export const Sidebar: React.FC = React.memo(() => {
+  const { nav_item, active_link } = styles;
+  const { pathname } = useLocation();
+
   return (
     <div className={styles.sidebar}>
       <div className={styles.logo_container}>
@@ -27,30 +29,33 @@ export const Sidebar: React.FC = React.memo(() => {
 
       <div className={styles.container}>
         <div className={styles.nav}>
-          {navList.map((navItem: NavItem)=>{
+          {navList.map((navItem: NavItem) => {
+              const isActive = pathname.includes(navItem.url);
+              const activeLinkStyle = isActive ? styles.active_link_text : '';
+              const activeImgStyle = isActive ? styles.img_active : '';
+
               return(
-                <Link 
+                <NavLink 
                   to={navItem.url}
                   key={navItem.nav_text} 
-                  className={`
-                    ${styles.nav_item}
-                    ${navItem.activeLogoUrl && styles.active_link}
-                  `}
+                  className={({ isActive }) => {
+                    return(`${nav_item} ${isActive && active_link}`)
+                  }}
                 >
                   <img 
-                    className={styles.img}
+                    className={`${styles.img} ${activeImgStyle}`}
                     src={navItem.logoUrl}
                     alt={`${navItem.nav_text}_logo`}
                   />
                   <span 
                     className={`
                       ${styles.nav_item__text}
-                      ${navItem.activeLogoUrl && styles.active_link_text}
+                      ${activeLinkStyle}
                     `}
                   >
                     {navItem.nav_text}
                   </span> 
-                </Link>
+                </NavLink>
               );
             })
           }
@@ -73,8 +78,7 @@ export const navList: NavItem[] = [
   {
     nav_text: "Home",
     url: "home",
-    logoUrl: home_active,
-    activeLogoUrl: home_active,
+    logoUrl: home,
   },
   {
     nav_text: "Courses",

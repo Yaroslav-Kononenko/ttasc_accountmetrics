@@ -1,7 +1,6 @@
 .course_image {
   position: absolute;
-  left: 10%;
-  top: 10%;
+  mix-blend-mode: screen;
 }
 
 .progress_line {

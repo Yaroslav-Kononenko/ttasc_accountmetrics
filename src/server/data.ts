@@ -5,6 +5,7 @@ import doc_icon from "../assets/card_details/doc_icon.svg";
 import statistic_logo  from "../assets/additional_info/book_icon.svg";
 import course1 from "../assets/additional_info/course1.png";
 import course2 from "../assets/additional_info/course2.png";
+import { images } from "./images";
 
 import { ProgressCardInfoType, AdditionalInfoType, CardDetails, CoursesResponseType } from "../types/general";
 
@@ -134,38 +135,75 @@ export const additionalCard: CardDetails[] = [
 
 export const mainCources: CoursesResponseType[] = [
   {
-    id: "1",
+    id: "1111",
     courseTitle: "course1",
     levels: 10,
     currentLvl: 4,
     percentCurrentLvL: 37,
+    img: images.planet1
   },
   {
-    id: "2",
+    id: "2222",
     courseTitle: "course2",
     levels: 10,
     currentLvl: 4,
     percentCurrentLvL: 37,
+    img: images.planet2
   },
   {
-    id: "3",
+    id: "3333",
     courseTitle: "course3",
     levels: 10,
     currentLvl: 4,
     percentCurrentLvL: 37,
+    img: images.planet3
   },
   {
-    id: "4",
+    id: "4444",
     courseTitle: "course4",
     levels: 10,
     currentLvl: 4,
     percentCurrentLvL: 37,
+    img: images.planet4
   },
   {
-    id: "5",
+    id: "5555",
     courseTitle: "course5",
     levels: 10,
     currentLvl: 4,
     percentCurrentLvL: 37,
+    img: images.planet5
+  },
+  {
+    id: "6666",
+    courseTitle: "course2",
+    levels: 10,
+    currentLvl: 4,
+    percentCurrentLvL: 37,
+    img: images.planet6
+  },
+  {
+    id: "7777",
+    courseTitle: "course3",
+    levels: 10,
+    currentLvl: 4,
+    percentCurrentLvL: 37,
+    img: images.planet7
+  },
+  {
+    id: "8888",
+    courseTitle: "course4",
+    levels: 10,
+    currentLvl: 4,
+    percentCurrentLvL: 37,
+    img: images.planet8
+  },
+  {
+    id: "9999",
+    courseTitle: "course5",
+    levels: 10,
+    currentLvl: 4,
+    percentCurrentLvL: 37,
+    img: images.planet9
   },
 ];

@@ -1,6 +1,6 @@
 import styles from "./CourseDetails.module.css";
 import sticker from "../../assets/waving_hand.jpg";
-import planet2 from "../../assets/planets/course2.png";
+import planet2 from "../../assets/planets/planet2.svg";
 import { CourcePlanet } from "../CourcePlanet";
 
 export const CourseDetails: React.FC = () => {

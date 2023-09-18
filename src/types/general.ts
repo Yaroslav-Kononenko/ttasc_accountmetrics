@@ -35,6 +35,7 @@ export type CoursesResponseType = {
   levels: number,
   currentLvl: number,
   percentCurrentLvL: number,
+  img?: any,
 };
 
 export type SignInDataType = {

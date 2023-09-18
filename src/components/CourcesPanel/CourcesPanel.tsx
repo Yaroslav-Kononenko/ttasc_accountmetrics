@@ -7,10 +7,6 @@ type Props = {
 }
 
 export const CourcesPanel: React.FC<Props> = ({mainCourses}) => {
-  const planetSizes = {
-    width: "105px",
-    height: "105px"
-  };
 
   const currentProgress = mainCourses[1] ? mainCourses[1].percentCurrentLvL : 0;
 
@@ -20,10 +16,9 @@ export const CourcesPanel: React.FC<Props> = ({mainCourses}) => {
         {mainCourses.map((planetInfo => {
           return(
             <CourcePlanet 
-              planetSizes={planetSizes}
               container_style={styles.planet_container}
               isActive={planetInfo.id === "2"}
-              planet={false}
+              img_url={planetInfo.img}
               austronaut={planetInfo.id === "2"}
               key={planetInfo.id} 
             />
