@@ -11,9 +11,11 @@ export const Header: React.FC = React.memo(() => {
 
   return(
     <header className={styles.header}>
-      <div className={styles.searchbar}>
-        <input type="text" name="" id="" placeholder="Search" className={styles.searchbar__input} />
-      </div>
+      <label htmlFor="searchText">
+        <div className={styles.searchbar}>
+          <input type="text" name="searchText" id="searchText" placeholder="Search" className={styles.searchbar__input} />
+        </div>
+      </label>
 
       <div className={styles.userbar}>
         <div className={styles.indicators}>

@@ -18,6 +18,9 @@ interface AppState {
   statistics: StatisticsInterface | null;
   statisticCardData: ProgressCardInfoType[];
   coursesData: CoursesResponseType[];
+  chousenCourse: {
+    id: string;
+  }
   isLoading: boolean;
 }
 
@@ -44,6 +47,9 @@ const initialState: AppState = {
     currentLvl: 0,
     percentCurrentLvL: 0
   }],
+  chousenCourse: {
+    id: "",
+  },
   statisticCardData: initialStatistics,
   isLoading: false,
 };
@@ -67,6 +73,9 @@ const appSlice = createSlice({
     setCoursesMainData(state, action: PayloadAction<CoursesResponseType[]>) {
       state.coursesData = action.payload;
     },
+    setChousenCourse(state, action: PayloadAction<{id: string}>) {
+      state.chousenCourse = action.payload;
+    },
     startLoading(state) {
       state.isLoading = true;
     },
@@ -76,5 +85,5 @@ const appSlice = createSlice({
   },
 });
 
-export const { setMainData, setStatistics, clearStatistic, setCourses, setCoursesMainData, startLoading, finishLoading } = appSlice.actions;
+export const { setMainData, setStatistics, clearStatistic, setCourses, setCoursesMainData, setChousenCourse, startLoading, finishLoading } = appSlice.actions;
 export default appSlice.reducer;

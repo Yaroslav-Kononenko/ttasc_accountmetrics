@@ -25,18 +25,6 @@
   order: 0;
   align-self: stretch;
   flex-grow: 1;
-  transition: all 0.3s;
-  cursor: pointer;
-}
-
-.logo_container:hover {
-  transform: scale(1.1);
-  transition: all 0.3s;
-}
-
-.logo_container:active {
-  transform: scale(1.05);
-  transition: all 0.3s;
 }
 
 .logo {
@@ -48,6 +36,7 @@
   flex: none;
   order: 0;
   flex-grow: 0;
+  cursor: pointer;
 }
 
 .logo__img {
